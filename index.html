@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>FreightShift International Logistics | Premium Freight Forwarding South Africa</title>
     
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Google Fonts - More refined typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -22,115 +22,76 @@
             box-sizing: border-box;
         }
 
+        /* Colors extracted from logo */
         :root {
-            --primary: #0A2540;      /* Deep navy - trust, professionalism */
-            --secondary: #1F4A6F;    /* Medium blue - reliability */
-            --accent: #C99A3A;        /* Warm gold - premium feel */
-            --accent-light: #E9C784;  /* Light gold - sophistication */
-            --text-dark: #1E2B3A;
-            --text-light: #5A6B7A;
+            --primary-dark: #1A1F2C;      /* Dark navy from logo */
+            --primary-medium: #2A3440;    /* Medium dark */
+            --accent-gold: #D4AF37;        /* Gold from FSD in logo */
+            --accent-gold-light: #E9C784;  /* Light gold */
+            --text-light: #6B7280;
+            --text-dark: #1F2937;
             --background: #FFFFFF;
-            --gray-light: #F8FAFC;
-            --gray-mid: #EFF3F6;
-            --shadow-sm: 0 4px 20px rgba(0,0,0,0.03);
-            --shadow-md: 0 8px 30px rgba(0,0,0,0.06);
-            --shadow-lg: 0 20px 40px rgba(0,0,0,0.08);
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --gray-light: #F9FAFB;
+            --gray-border: #E5E7EB;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.05);
+            --shadow-hover: 0 20px 25px rgba(212, 175, 55, 0.1);
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             color: var(--text-dark);
             overflow-x: hidden;
-            line-height: 1.6;
+            line-height: 1.5;
             background: var(--background);
+            font-size: 16px;
         }
 
-        /* Custom Scrollbar - More refined */
-        ::-webkit-scrollbar {
-            width: 8px;
+        /* Container for consistent spacing */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 5%;
         }
 
-        ::-webkit-scrollbar-track {
-            background: var(--gray-light);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--secondary);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary);
-        }
-
-        /* Typography */
-        h1, h2, h3, h4 {
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            position: relative;
-            margin-bottom: 1.5rem;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--accent);
-        }
-
-        .section-title.center {
-            text-align: center;
-        }
-
-        .section-title.center::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Navigation - More refined */
+        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
-            width: 100%;
+            left: 0;
+            right: 0;
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 0.8rem 5%;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: var(--transition);
-            border-bottom: 1px solid rgba(0,0,0,0.03);
-        }
-
-        .navbar.scrolled {
-            padding: 0.5rem 5%;
-            box-shadow: var(--shadow-md);
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 5%;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
+            text-decoration: none;
         }
 
         .logo-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
+            flex-shrink: 0;
+            border: 2px solid var(--accent-gold);
         }
 
         .logo-icon img {
@@ -140,22 +101,22 @@
         }
 
         .logo-text {
-            line-height: 1.2;
+            line-height: 1.3;
         }
 
         .logo-text .main {
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             font-weight: 800;
-            color: var(--primary);
-            letter-spacing: -0.5px;
+            color: var(--primary-dark);
+            letter-spacing: -0.3px;
         }
 
         .logo-text .sub {
-            font-size: 0.75rem;
-            color: var(--accent);
-            letter-spacing: 1.5px;
+            font-size: 0.7rem;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .nav-links {
@@ -166,54 +127,61 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            font-size: 0.95rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            transition: color 0.3s;
             position: relative;
-            padding: 0.5rem 0;
         }
 
-        .nav-links a::before {
+        .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -4px;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::before {
-            width: 100%;
+            background: var(--accent-gold);
+            transition: width 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--accent-gold);
         }
 
-        /* Hero Section - More sophisticated */
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-dark);
+        }
+
+        /* Hero Section */
         .hero {
-            min-height: 90vh;
-            background: linear-gradient(135deg, #0A2540 0%, #1F4A6F 100%);
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
             position: relative;
-            overflow: hidden;
             display: flex;
             align-items: center;
-            margin-top: 70px;
+            margin-top: 72px;
+            padding: 4rem 0;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23C99A3A" fill-opacity="0.05" d="M0,192L48,197.3C96,203,192,213,288,208C384,203,480,181,576,186.7C672,192,768,224,864,234.7C960,245,1056,235,1152,208C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>');
-            background-repeat: no-repeat;
-            background-position: bottom;
-            background-size: cover;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="%23D4AF37" stroke-width="0.5" opacity="0.1"/></svg>');
+            background-size: 50px 50px;
             opacity: 0.3;
         }
 
@@ -221,38 +189,34 @@
             position: relative;
             z-index: 2;
             max-width: 800px;
-            padding: 0 5%;
         }
 
         .hero-badge {
             display: inline-block;
             padding: 0.5rem 1rem;
-            background: rgba(201, 154, 58, 0.15);
-            border: 1px solid rgba(201, 154, 58, 0.3);
-            border-radius: 50px;
-            color: var(--accent-light);
-            font-size: 0.85rem;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 100px;
+            color: var(--accent-gold);
+            font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 1px;
             margin-bottom: 1.5rem;
-            backdrop-filter: blur(5px);
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: white;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            font-family: 'Playfair Display', serif;
         }
 
         .hero h1 span {
-            color: var(--accent);
+            color: var(--accent-gold);
             display: block;
             font-size: 2.5rem;
-            font-weight: 400;
-            letter-spacing: 2px;
+            font-weight: 500;
             margin-top: 0.5rem;
         }
 
@@ -261,7 +225,6 @@
             color: rgba(255,255,255,0.9);
             margin-bottom: 2.5rem;
             max-width: 600px;
-            line-height: 1.8;
         }
 
         .hero-cta {
@@ -278,20 +241,22 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             text-decoration: none;
-            transition: var(--transition);
+            transition: all 0.3s;
             border: none;
             cursor: pointer;
+            display: inline-block;
         }
 
         .btn-primary {
-            background: var(--accent);
-            color: var(--primary);
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            border: 2px solid var(--accent-gold);
         }
 
         .btn-primary:hover {
-            background: white;
-            transform: translateY(-3px);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+            background: transparent;
+            color: white;
+            transform: translateY(-2px);
         }
 
         .btn-outline {
@@ -301,38 +266,50 @@
         }
 
         .btn-outline:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: translateY(-3px);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            transform: translateY(-2px);
         }
 
         /* Stats Section */
+        .stats-section {
+            padding: 3rem 0;
+            background: white;
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
-            max-width: 1200px;
-            margin: -70px auto 0;
-            padding: 2rem 3rem;
             background: white;
+            padding: 2rem;
             border-radius: 20px;
             box-shadow: var(--shadow-lg);
-            position: relative;
-            z-index: 10;
+            border: 1px solid var(--gray-border);
         }
 
         .stat-item {
             text-align: center;
-            padding: 1rem;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 40px;
+            background: var(--gray-border);
         }
 
         .stat-number {
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--accent-gold);
             line-height: 1;
             margin-bottom: 0.5rem;
-            font-family: 'Playfair Display', serif;
         }
 
         .stat-label {
@@ -340,44 +317,55 @@
             font-size: 0.9rem;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         /* About Section */
         .about-section {
-            padding: 6rem 5%;
+            padding: 5rem 0;
+            background: var(--gray-light);
         }
 
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 4rem;
             align-items: center;
         }
 
         .about-content p {
             color: var(--text-light);
             margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1rem;
+            line-height: 1.7;
         }
 
-        .about-features {
+        .feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
             margin-top: 2rem;
         }
 
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid var(--gray-border);
         }
 
         .feature-item i {
-            color: var(--accent);
+            color: var(--accent-gold);
             font-size: 1.2rem;
+            width: 24px;
+        }
+
+        .feature-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .about-image {
@@ -386,8 +374,10 @@
 
         .about-image img {
             width: 100%;
+            height: auto;
             border-radius: 20px;
             box-shadow: var(--shadow-lg);
+            border: 4px solid white;
         }
 
         .about-image::before {
@@ -397,23 +387,53 @@
             left: -20px;
             right: 20px;
             bottom: 20px;
-            border: 3px solid var(--accent);
+            border: 2px solid var(--accent-gold);
             border-radius: 20px;
             z-index: -1;
         }
 
         /* Services Section */
         .services-section {
-            padding: 6rem 5%;
-            background: var(--gray-light);
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.7;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            max-width: 1200px;
-            margin: 3rem auto 0;
         }
 
         .service-card {
@@ -421,12 +441,14 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow-md);
-            transition: var(--transition);
+            border: 1px solid var(--gray-border);
+            transition: all 0.3s;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-gold);
         }
 
         .service-image {
@@ -438,105 +460,107 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
+            transition: transform 0.3s;
         }
 
         .service-card:hover .service-image img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .service-content {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .service-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(201, 154, 58, 0.1);
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.1);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .service-icon i {
-            font-size: 2rem;
-            color: var(--accent);
+            font-size: 1.5rem;
+            color: var(--accent-gold);
         }
 
         .service-content h3 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
         }
 
         .service-content p {
             color: var(--text-light);
-            line-height: 1.7;
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
         /* Why Choose Us */
         .why-section {
-            padding: 6rem 5%;
+            padding: 5rem 0;
+            background: var(--gray-light);
         }
 
         .why-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            max-width: 1200px;
-            margin: 3rem auto 0;
         }
 
         .why-card {
-            padding: 2.5rem;
             background: white;
+            padding: 2rem;
             border-radius: 20px;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            border: 1px solid var(--gray-mid);
+            border: 1px solid var(--gray-border);
+            transition: all 0.3s;
+            text-align: center;
         }
 
         .why-card:hover {
+            border-color: var(--accent-gold);
             transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--accent);
         }
 
         .why-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 2rem;
         }
 
         .why-icon i {
             font-size: 2rem;
-            color: var(--accent);
+            color: var(--accent-gold);
         }
 
         .why-card h3 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.75rem;
         }
 
         .why-card p {
             color: var(--text-light);
-            line-height: 1.7;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         /* Quote Box */
         .quote-box {
             max-width: 800px;
-            margin: 4rem auto 0;
+            margin: 3rem auto 0;
             padding: 3rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
             border-radius: 20px;
             text-align: center;
             color: white;
@@ -548,17 +572,18 @@
             content: '"';
             position: absolute;
             top: -50px;
-            right: -50px;
-            font-size: 300px;
-            color: rgba(255,255,255,0.03);
+            right: 0;
+            font-size: 200px;
+            color: rgba(212, 175, 55, 0.1);
             font-family: serif;
         }
 
         .quote-box i {
             font-size: 3rem;
-            color: var(--accent);
+            color: var(--accent-gold);
             margin-bottom: 1.5rem;
-            opacity: 0.5;
+            position: relative;
+            z-index: 1;
         }
 
         .quote-box p {
@@ -569,9 +594,9 @@
             z-index: 1;
         }
 
-        /* Vision Mission Goal */
+        /* VMG Section */
         .vmg-section {
-            padding: 6rem 5%;
+            padding: 5rem 0;
             background: white;
         }
 
@@ -579,72 +604,57 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .vmg-card {
-            padding: 3rem 2rem;
+            padding: 2.5rem 2rem;
             background: var(--gray-light);
             border-radius: 20px;
             text-align: center;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .vmg-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .vmg-card:hover::before {
-            transform: scaleX(1);
+            transition: all 0.3s;
+            border: 1px solid transparent;
         }
 
         .vmg-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-md);
+            border-color: var(--accent-gold);
+            background: white;
+            transform: translateY(-5px);
         }
 
         .vmg-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 2rem;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
             background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 2px solid var(--accent-gold);
         }
 
         .vmg-icon i {
             font-size: 2rem;
-            color: var(--accent);
+            color: var(--accent-gold);
         }
 
         .vmg-card h3 {
             font-size: 1.5rem;
-            color: var(--primary);
+            font-weight: 700;
+            color: var(--primary-dark);
             margin-bottom: 1rem;
         }
 
         .vmg-card p {
             color: var(--text-light);
+            font-size: 0.95rem;
             line-height: 1.7;
         }
 
         /* Contact Section */
         .contact-section {
-            padding: 6rem 5%;
-            background: linear-gradient(135deg, #0A2540 0%, #1F4A6F 100%);
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
             color: white;
         }
 
@@ -652,8 +662,6 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            max-width: 1200px;
-            margin: 3rem auto 0;
         }
 
         .contact-info {
@@ -662,57 +670,65 @@
 
         .contact-info h3 {
             font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .contact-info p {
+            color: rgba(255,255,255,0.8);
             margin-bottom: 2rem;
-            font-family: 'Playfair Display', serif;
+            line-height: 1.7;
         }
 
         .contact-details {
-            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
             gap: 1rem;
-            margin-bottom: 2rem;
         }
 
         .contact-item i {
             width: 40px;
             height: 40px;
-            background: rgba(201, 154, 58, 0.2);
+            background: rgba(212, 175, 55, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent);
+            color: var(--accent-gold);
             font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
         .contact-item h4 {
             font-size: 1rem;
-            color: var(--accent);
-            margin-bottom: 0.3rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-bottom: 0.25rem;
         }
 
         .contact-item p, .contact-item a {
             color: rgba(255,255,255,0.8);
             text-decoration: none;
             line-height: 1.6;
-            transition: color 0.3s;
         }
 
         .contact-item a:hover {
-            color: var(--accent);
+            color: var(--accent-gold);
         }
 
         .map-container {
             border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow-lg);
-            height: 400px;
+            height: 350px;
+            border: 3px solid var(--accent-gold);
         }
 
         .map-container iframe {
@@ -723,17 +739,16 @@
 
         /* Footer */
         .footer {
-            background: #0A1A2B;
+            background: var(--primary-dark);
             color: white;
-            padding: 4rem 5% 2rem;
+            padding: 4rem 0 2rem;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1.5fr;
             gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            margin-bottom: 3rem;
         }
 
         .footer-about .logo-container {
@@ -742,8 +757,9 @@
 
         .footer-about p {
             color: rgba(255,255,255,0.6);
-            line-height: 1.8;
+            line-height: 1.7;
             margin-bottom: 1.5rem;
+            font-size: 0.95rem;
         }
 
         .footer-social {
@@ -752,8 +768,8 @@
         }
 
         .footer-social a {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
             display: flex;
@@ -761,21 +777,21 @@
             justify-content: center;
             color: white;
             text-decoration: none;
-            transition: var(--transition);
+            transition: all 0.3s;
         }
 
         .footer-social a:hover {
-            background: var(--accent);
-            color: var(--primary);
-            transform: translateY(-3px);
+            background: var(--accent-gold);
+            color: var(--primary-dark);
         }
 
         .footer-links h4 {
-            color: var(--accent);
-            font-size: 1.1rem;
+            color: var(--accent-gold);
+            font-size: 1rem;
+            font-weight: 600;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .footer-links ul {
@@ -783,43 +799,31 @@
         }
 
         .footer-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.75rem;
         }
 
         .footer-links a {
             color: rgba(255,255,255,0.6);
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 0.95rem;
         }
 
         .footer-links a:hover {
-            color: var(--accent);
+            color: var(--accent-gold);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 3rem;
-            margin-top: 3rem;
+            padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             color: rgba(255,255,255,0.5);
             font-size: 0.9rem;
         }
 
-        /* Mobile Menu */
-        .menu-btn {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary);
-        }
-
-        /* Responsive */
+        /* Mobile Responsive */
         @media (max-width: 1024px) {
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                margin: -50px 5% 0;
-            }
-            
+            .services-grid,
             .why-grid,
             .vmg-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -833,10 +837,10 @@
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 72px;
                 left: -100%;
                 width: 100%;
-                height: calc(100vh - 80px);
+                height: calc(100vh - 72px);
                 background: white;
                 flex-direction: column;
                 align-items: center;
@@ -850,6 +854,10 @@
                 left: 0;
             }
 
+            .nav-links a {
+                font-size: 1.1rem;
+            }
+
             .menu-btn {
                 display: block;
             }
@@ -861,20 +869,51 @@
             .hero h1 span {
                 font-size: 1.8rem;
             }
-            
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .stat-item:not(:last-child)::after {
+                display: none;
+            }
+
             .about-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            
+
+            .about-image {
+                order: -1;
+            }
+
+            .services-grid,
             .why-grid,
             .vmg-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .stats-grid {
+
+            .feature-list {
                 grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .contact-info {
+                padding-right: 0;
             }
         }
 
@@ -883,193 +922,189 @@
                 font-size: 2rem;
             }
             
+            .hero h1 span {
+                font-size: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
             .section-title {
                 font-size: 2rem;
             }
-            
-            .service-card {
-                margin: 0 1rem;
+
+            .quote-box {
+                padding: 2rem 1.5rem;
+            }
+
+            .quote-box p {
+                font-size: 1.2rem;
+            }
+
+            .logo-text .main {
+                font-size: 1rem;
+            }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="logo-container">
-            <div class="logo-icon">
-                <img src="images/icon.jpeg" alt="FreightShift International Logistics">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo-container">
+                <div class="logo-icon">
+                    <img src="images/icon.jpeg" alt="FreightShift International Logistics">
+                </div>
+                <div class="logo-text">
+                    <div class="main">FreightShift</div>
+                    <div class="sub">International Logistics</div>
+                </div>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why">Why Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <div class="menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
             </div>
-            <div class="logo-text">
-                <div class="main">FreightShift</div>
-                <div class="sub">International Logistics</div>
-            </div>
-        </div>
-        
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#why">Why Us</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        
-        <div class="menu-btn" id="menuBtn">
-            <i class="fas fa-bars"></i>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-badge" data-aos="fade-up">PREMIUM LOGISTICS SOLUTIONS</div>
-            <h1 data-aos="fade-up" data-aos-delay="100">
-                Moving Your World
-                <span>With Precision & Care</span>
-            </h1>
-            <p data-aos="fade-up" data-aos-delay="200">South African based freight forwarding specialists connecting Africa to the world. Your trusted partner in global logistics, combining cutting-edge technology with hands-on expertise.</p>
-            <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
-                <a href="#contact" class="btn btn-primary">Get Quote</a>
-                <a href="#services" class="btn btn-outline">Our Services</a>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge" data-aos="fade-up">PREMIUM LOGISTICS SOLUTIONS</div>
+                <h1 data-aos="fade-up" data-aos-delay="100">
+                    Moving Your World
+                    <span>With Precision & Care</span>
+                </h1>
+                <p data-aos="fade-up" data-aos-delay="200">South African based freight forwarding specialists connecting Africa to the world. Your trusted partner in global logistics, combining cutting-edge technology with hands-on expertise.</p>
+                <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#contact" class="btn btn-primary">Get Quote</a>
+                    <a href="#services" class="btn btn-outline">Our Services</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <div class="stats-grid" data-aos="fade-up" data-aos-delay="200">
-        <div class="stat-item">
-            <div class="stat-number">500+</div>
-            <div class="stat-label">Monthly Shipments</div>
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid" data-aos="fade-up">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Monthly Shipments</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">On-Time Delivery</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support</div>
+                </div>
+            </div>
         </div>
-        <div class="stat-item">
-            <div class="stat-number">15+</div>
-            <div class="stat-label">Countries Served</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">98%</div>
-            <div class="stat-label">On-Time Delivery</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">24/7</div>
-            <div class="stat-label">Support</div>
-        </div>
-    </div>
+    </section>
 
     <!-- About Section -->
     <section class="about-section" id="about">
-        <div class="about-grid">
-            <div class="about-content" data-aos="fade-right">
-                <h2 class="section-title">About FreightShift</h2>
-                <p>We are a South African based freight forwarding company that specialises in moving your cargo swiftly and securely across borders. We combine cutting-edge technology with hands-on expertise to shift your shipments with precision, on-time delivery and in-transit care so you can focus on your business.</p>
-                <p>From air and sea freight to customs clearance and warehousing, we are your reliable partner in keeping the supply chain moving forward. We also highly focus on national logistics services within South Africa and neighbouring countries, acting as the bridge between suppliers and customers.</p>
-                
-                <div class="about-features">
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Expertise in China-South Africa trade lanes</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Competitive and affordable rates</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Real-time tracking and updates</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Customs compliance expertise</span>
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content" data-aos="fade-right">
+                    <h2 class="section-title" style="text-align: left;">About FreightShift</h2>
+                    <p>We are a South African based freight forwarding company that specialises in moving your cargo swiftly and securely across borders. We combine cutting-edge technology with hands-on expertise to shift your shipments with precision, on-time delivery and in-transit care so you can focus on your business.</p>
+                    <p>From air and sea freight to customs clearance and warehousing, we are your reliable partner in keeping the supply chain moving forward. We also focus on national logistics services within South Africa and neighbouring countries.</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>China-SA Expertise</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Competitive Rates</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Real-time Tracking</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Customs Expertise</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="about-image" data-aos="fade-left">
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Freight operations">
+                
+                <div class="about-image" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Freight operations" loading="lazy">
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="services-section" id="services">
-        <h2 class="section-title center" data-aos="fade-up">Our Services</h2>
-        <p style="text-align: center; color: var(--text-light); max-width: 600px; margin: 0 auto;" data-aos="fade-up">Comprehensive logistics solutions tailored to your business needs</p>
-        
-        <div class="services-grid">
-            <div class="service-card" data-aos="fade-up">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="International Freight">
-                </div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fas fa-globe-americas"></i>
-                    </div>
-                    <h3>International Freight</h3>
-                    <p>Air, Sea, and Road transport solutions connecting South Africa to the world with optimal routing and competitive rates.</p>
-                </div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive logistics solutions tailored to your business needs</p>
             </div>
-
-            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1553413077-190dd305871e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Customs Clearance">
-                </div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fas fa-file-signature"></i>
+            
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="International Freight" loading="lazy">
                     </div>
-                    <h3>Customs Clearance</h3>
-                    <p>Expert handling of South African and international customs regulations ensuring smooth, compliant passage.</p>
-                </div>
-            </div>
-
-            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1586528116493-3ce89c84b53b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Warehousing">
-                </div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fas fa-warehouse"></i>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <h3>International Freight</h3>
+                        <p>Air, Sea, and Road transport solutions connecting South Africa to the world with optimal routing.</p>
                     </div>
-                    <h3>Warehousing & Distribution</h3>
-                    <p>Secure storage, packing, and efficient distribution across South Africa with real-time inventory management.</p>
                 </div>
-            </div>
 
-            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Supply Chain">
-                </div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1553413077-190dd305871e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Customs Clearance" loading="lazy">
                     </div>
-                    <h3>Supply Chain Management</h3>
-                    <p>End-to-end optimization for cost saving and speed, from procurement to final delivery.</p>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-file-signature"></i>
+                        </div>
+                        <h3>Customs Clearance</h3>
+                        <p>Expert handling of South African and international customs regulations ensuring smooth passage.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Moving Services">
-                </div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fas fa-truck-moving"></i>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1586528116493-3ce89c84b53b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Warehousing" loading="lazy">
                     </div>
-                    <h3>Moving Services</h3>
-                    <p>Complete household and office moving with secure packing, transportation, and delivery.</p>
-                </div>
-            </div>
-
-            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="National Logistics">
-                </div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fas fa-truck"></i>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <h3>Warehousing</h3>
+                        <p>Secure storage, packing, and efficient distribution across South Africa.</p>
                     </div>
-                    <h3>National Logistics</h3>
-                    <p>Day-to-day logistics services across South Africa and neighbouring countries at affordable prices.</p>
                 </div>
             </div>
         </div>
@@ -1077,203 +1112,181 @@
 
     <!-- Why Choose Us -->
     <section class="why-section" id="why">
-        <h2 class="section-title center" data-aos="fade-up">Why Choose FreightShift</h2>
-        <p style="text-align: center; color: var(--text-light); max-width: 600px; margin: 0 auto;" data-aos="fade-up">We understand that logistics is the backbone of your business</p>
-        
-        <div class="why-grid">
-            <div class="why-card" data-aos="flip-left">
-                <div class="why-icon">
-                    <i class="fas fa-globe-africa"></i>
-                </div>
-                <h3>China-SA Expertise</h3>
-                <p>Specialized knowledge in China-South Africa trade lanes ensuring smooth operations and faster clearance.</p>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Why Choose Us</h2>
+                <p class="section-subtitle">We understand that logistics is the backbone of your business</p>
             </div>
             
-            <div class="why-card" data-aos="flip-left" data-aos-delay="100">
-                <div class="why-icon">
-                    <i class="fas fa-wallet"></i>
+            <div class="why-grid">
+                <div class="why-card" data-aos="fade-up">
+                    <div class="why-icon">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <h3>China-SA Expertise</h3>
+                    <p>Specialized knowledge in China-South Africa trade lanes ensuring smooth operations.</p>
                 </div>
-                <h3>Competitive Rates</h3>
-                <p>Affordable and flexible solutions tailored to your budget without compromising on quality.</p>
-            </div>
-            
-            <div class="why-card" data-aos="flip-left" data-aos-delay="200">
-                <div class="why-icon">
-                    <i class="fas fa-map-marked-alt"></i>
+                
+                <div class="why-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="why-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>Competitive Rates</h3>
+                    <p>Affordable and flexible solutions tailored to your budget without compromise.</p>
                 </div>
-                <h3>Real-Time Tracking</h3>
-                <p>24/7 visibility of your goods with instant updates and proactive notifications.</p>
-            </div>
-            
-            <div class="why-card" data-aos="flip-left" data-aos-delay="300">
-                <div class="why-icon">
-                    <i class="fas fa-file-alt"></i>
+                
+                <div class="why-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="why-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Real-Time Tracking</h3>
+                    <p>24/7 visibility of your goods with instant updates and notifications.</p>
                 </div>
-                <h3>Customs Expertise</h3>
-                <p>Expert handling of South African and international regulations for smooth clearance.</p>
             </div>
-            
-            <div class="why-card" data-aos="flip-left" data-aos-delay="400">
-                <div class="why-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <h3>Personalized Service</h3>
-                <p>Dedicated team of experienced professionals assigned to your account.</p>
-            </div>
-            
-            <div class="why-card" data-aos="flip-left" data-aos-delay="500">
-                <div class="why-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <h3>On-Time Delivery</h3>
-                <p>Commitment to precision and punctuality with 98% on-time delivery record.</p>
-            </div>
-        </div>
 
-        <div class="quote-box" data-aos="zoom-in">
-            <i class="fas fa-quote-left"></i>
-            <p>"Let us handle the logistics, so you can focus on growing your business!"</p>
+            <div class="quote-box" data-aos="zoom-in">
+                <i class="fas fa-quote-left"></i>
+                <p>"Let us handle the logistics, so you can focus on growing your business!"</p>
+            </div>
         </div>
     </section>
 
     <!-- Vision Mission Goal -->
     <section class="vmg-section">
-        <div class="vmg-grid">
-            <div class="vmg-card" data-aos="fade-right">
-                <div class="vmg-icon">
-                    <i class="fas fa-eye"></i>
+        <div class="container">
+            <div class="vmg-grid">
+                <div class="vmg-card" data-aos="fade-up">
+                    <div class="vmg-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To be the leading logistics provider connecting China and South Africa, exceeding customer expectations with innovative solutions.</p>
                 </div>
-                <h3>Our Vision</h3>
-                <p>To be the leading logistics provider connecting China and South Africa, exceeding customer expectations with innovative solutions and shorter lead time.</p>
-            </div>
-            
-            <div class="vmg-card" data-aos="fade-up">
-                <div class="vmg-icon">
-                    <i class="fas fa-bullseye"></i>
+                
+                <div class="vmg-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="vmg-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>Delivering seamless, reliable, faster, and cost-effective logistics services for our clients.</p>
                 </div>
-                <h3>Our Mission</h3>
-                <p>Delivering seamless, reliable, faster, and cost-effective logistics services, fostering growth and success for our clients and partners.</p>
-            </div>
-            
-            <div class="vmg-card" data-aos="fade-left">
-                <div class="vmg-icon">
-                    <i class="fas fa-flag"></i>
+                
+                <div class="vmg-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="vmg-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Our Goal</h3>
+                    <p>Exceptional customer service through transparency and faster delivery with integrity.</p>
                 </div>
-                <h3>Our Goal</h3>
-                <p>To provide exceptional customer service through transparency and faster delivery while maintaining the highest standards of integrity.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
-        <h2 class="section-title center" style="color: white;" data-aos="fade-up">Contact Us</h2>
-        <p style="text-align: center; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto;" data-aos="fade-up">Get in touch with our team for a personalized quote</p>
-        
-        <div class="contact-grid">
-            <div class="contact-info" data-aos="fade-right">
-                <h3>Let's Talk Logistics</h3>
-                <p style="color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 2rem;">Whether you need international freight forwarding or local logistics solutions, our team is ready to assist.</p>
-                
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <h4>Call Us</h4>
-                            <p><a href="tel:0681095543">068 109 5543</a></p>
-                        </div>
-                    </div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title" style="color: white;">Contact Us</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Get in touch with our team for a personalized quote</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3>Let's Talk Logistics</h3>
+                    <p>Whether you need international freight forwarding or local logistics solutions, our team is ready to assist.</p>
                     
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email Us</h4>
-                            <p><a href="mailto:info@freightshift.co.za">info@freightshift.co.za</a></p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Call Us</h4>
+                                <p><a href="tel:0681095543">068 109 5543</a></p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Visit Us</h4>
-                            <p>Unit A13, Lincorp Industrial Park<br>21 1st Rd, Linbro Park<br>Sandton, 2090<br>South Africa</p>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email Us</h4>
+                                <p><a href="mailto:info@freightshift.co.za">info@freightshift.co.za</a></p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Working Hours</h4>
-                            <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: By Appointment<br>Sunday: Closed</p>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Visit Us</h4>
+                                <p>Unit A13, Lincorp Industrial Park<br>21 1st Rd, Linbro Park<br>Sandton, 2090</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="map-container" data-aos="fade-left">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.094987573676!2d28.1213!3d-26.1952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c68f0406a51%3A0x238ac9d9b1d34041!2sLinbro%20Park%2C%20Sandton%2C%202090!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza" allowfullscreen="" loading="lazy"></iframe>
+                
+                <div class="map-container" data-aos="fade-left">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.094987573676!2d28.1213!3d-26.1952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c68f0406a51%3A0x238ac9d9b1d34041!2sLinbro%20Park%2C%20Sandton%2C%202090!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-about">
-                <div class="logo-container">
-                    <div class="logo-icon">
-                        <img src="images/icon.jpeg" alt="FreightShift International Logistics">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#" class="logo-container">
+                        <div class="logo-icon">
+                            <img src="images/icon.jpeg" alt="FreightShift International Logistics">
+                        </div>
+                        <div class="logo-text">
+                            <div class="main" style="color: white;">FreightShift</div>
+                            <div class="sub">International Logistics</div>
+                        </div>
+                    </a>
+                    <p>Your trusted partner in freight forwarding and logistics solutions across South Africa and beyond. Combining cutting-edge technology with hands-on expertise.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
-                    <div class="logo-text">
-                        <div class="main" style="color: white;">FreightShift</div>
-                        <div class="sub">International Logistics</div>
-                    </div>
                 </div>
-                <p>Your trusted partner in freight forwarding and logistics solutions across South Africa and beyond. Combining cutting-edge technology with hands-on expertise.</p>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#why">Why Choose Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#">International Freight</a></li>
+                        <li><a href="#">Customs Clearance</a></li>
+                        <li><a href="#">Warehousing</a></li>
+                        <li><a href="#">Moving Services</a></li>
+                        <li><a href="#">National Logistics</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Working Hours</h4>
+                    <ul>
+                        <li>Mon - Fri: 8:00 - 17:00</li>
+                        <li>Sat: By Appointment</li>
+                        <li>Sun: Closed</li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#why">Why Choose Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FreightShift International Logistics. All rights reserved. | South African based freight forwarding specialists</p>
             </div>
-            
-            <div class="footer-links">
-                <h4>Our Services</h4>
-                <ul>
-                    <li><a href="#">International Freight</a></li>
-                    <li><a href="#">Customs Clearance</a></li>
-                    <li><a href="#">Warehousing</a></li>
-                    <li><a href="#">Moving Services</a></li>
-                    <li><a href="#">National Logistics</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Newsletter</h4>
-                <p style="color: rgba(255,255,255,0.6); margin-bottom: 1rem;">Subscribe for updates and offers</p>
-                <div style="display: flex;">
-                    <input type="email" placeholder="Your Email" style="flex: 1; padding: 0.8rem; border: none; border-radius: 5px 0 0 5px; background: rgba(255,255,255,0.1); color: white; outline: none;">
-                    <button style="background: var(--accent); border: none; padding: 0 1.2rem; border-radius: 0 5px 5px 0; cursor: pointer;">
-                        <i class="fas fa-paper-plane" style="color: var(--primary);"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 FreightShift International Logistics. All rights reserved. | South African based freight forwarding specialists</p>
         </div>
     </footer>
 
@@ -1282,16 +1295,15 @@
     <script>
         // Initialize AOS
         AOS.init({
-            duration: 1000,
+            duration: 800,
             once: true,
-            offset: 100,
-            easing: 'ease-out-cubic'
+            offset: 50,
+            disable: false
         });
 
         // Mobile Menu
         const menuBtn = document.getElementById('menuBtn');
         const navLinks = document.getElementById('navLinks');
-        const navbar = document.getElementById('navbar');
 
         menuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
@@ -1305,15 +1317,6 @@
                 navLinks.classList.remove('active');
                 menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
         });
 
         // Smooth scrolling
@@ -1330,48 +1333,15 @@
             });
         });
 
-        // Counter animation
-        const stats = document.querySelectorAll('.stat-number');
-        let animated = false;
-
-        function animateStats() {
-            if (animated) return;
-            
-            stats.forEach(stat => {
-                const target = parseInt(stat.innerText);
-                let current = 0;
-                const increment = target / 50;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        stat.innerText = target + '+';
-                        clearInterval(timer);
-                    } else {
-                        stat.innerText = Math.floor(current) + '+';
-                    }
-                }, 20);
-            });
-            animated = true;
-        }
-
-        // Intersection Observer for stats
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateStats();
-                }
-            });
+        // Navbar background on scroll
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
         });
-
-        observer.observe(document.querySelector('.stats-grid'));
-
-        // Form submission alert
-        const newsletterBtn = document.querySelector('.footer-links button');
-        if (newsletterBtn) {
-            newsletterBtn.addEventListener('click', () => {
-                alert('Thank you for subscribing to our newsletter!');
-            });
-        }
     </script>
 </body>
 </html>
